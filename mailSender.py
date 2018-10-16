@@ -23,7 +23,7 @@ def sendMail(fromAddr, toAddr, subject, body):
         
         server.login(config['SERVER']['LOGIN'], config['SERVER']['PASSWORD'])
         text = msg.as_string()
-        server.sendmail(fromAddr, toAddr, text)
+        server.sendmail(fromAddr, toAddr.split(","), text)
         return True
     except Exception as e:
         print(str(e))
